@@ -1,0 +1,17 @@
+---
+    import Layout from '../layouts/Layout.astro';
+    import BlogPost from '../components/BlogPost.astro';
+
+    const posts = await Astro.glob('../pages/posts/*.mdx');
+    ---
+
+    <Layout title="My Astro Blog">
+      <h1>Welcome to my blog</h1>
+      <ul>
+        {posts.map((post) => (
+          <li>
+            <BlogPost {...post} />
+          </li>
+        ))}
+      </ul>
+    </Layout>
